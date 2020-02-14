@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 
 const App = () => {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
+  const [array, setArray] = useState([0, 0]);
+  const [age, setAge] = useState(26);
+
+  const increaseAge = () => {
+    setAge(age + 1);
+  };
+
+  const addTodo = () => {
+    setArray(prevState => [...prevState, 0]);
+  };
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
+      <p>Array of 0s: {array}</p>
+      <button onClick={addTodo}>Add 0 to Array</button>
+      <p>Age: {age}</p>
+      <button onClick={increaseAge}>Increase Age</button>
     </div>
   );
 };
